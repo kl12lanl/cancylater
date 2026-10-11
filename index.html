@@ -20,7 +20,7 @@
             background-color: #f0f2f5;
         }
 
-        /* Контейнер калькулятора (вытянут в столбик) */
+       
         .calculator {
             width: 320px;
             background-color: #17171c;
@@ -43,14 +43,14 @@
             outline: none;
         }
 
-        /* Сетка для кнопок */
+    
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
         }
 
-        /* Общий стиль для всех кнопок */
+       
         button {
             padding: 20px;
             font-size: 1.5rem;
@@ -66,7 +66,7 @@
             transform: scale(0.95);
         }
 
-        /* Стиль для операторов (+, -, *, /) */
+        
         .operator {
             background-color: #ff9f0a;
             color: #ffffff;
@@ -76,7 +76,7 @@
             background-color: #e08b09;
         }
 
-        /* Стиль для кнопки очистки (C) */
+        
         .clear {
             background-color: #4e505f;
         }
@@ -85,10 +85,10 @@
             background-color: #3e404c;
         }
 
-        /* Стиль для кнопки «равно» */
+        
         .equal {
             background-color: #ff9f0a;
-            grid-column: span 2; /* Растягиваем на 2 колонки для удобства */
+            grid-column: span 2; 
         }
 
         button:hover {
@@ -99,10 +99,10 @@
 <body>
 
     <div class="calculator">
-        <!-- Экран вывода -->
+       
         <input type="text" class="display" id="result" readonly value="0">
         
-        <!-- Кнопки в столбик/ряд -->
+       
         <div class="buttons">
             <button class="clear" onclick="clearScreen()">C</button>
             <button class="clear" onclick="deleteLast()">⌫</button>
@@ -132,7 +132,7 @@
     <script>
         const display = document.getElementById('result');
 
-        // Добавление символа на экран
+        
         function appendValue(value) {
             if (display.value === '0' && value !== '.') {
                 display.value = value;
@@ -141,12 +141,12 @@
             }
         }
 
-        // Очистить весь экран
+       
         function clearScreen() {
             display.value = '0';
         }
 
-        // Удалить последний символ
+       
         function deleteLast() {
             if (display.value.length > 1) {
                 display.value = display.value.slice(0, -1);
@@ -155,13 +155,13 @@
             }
         }
 
-        // Вычисление результата
+        
         function calculate() {
             try {
-                // eval выполняет математическое выражение из строки
+                
                 let result = eval(display.value);
                 
-                // Округление, чтобы избежать проблем с плавающей точкой (например, 0.1 + 0.2)
+                
                 display.value = Number(result.toFixed(8)).toString();
             } catch (error) {
                 display.value = 'Ошибка';
